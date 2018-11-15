@@ -202,30 +202,64 @@ input:focus, textarea:focus {
 
 .guitarra {
   margin: 10px 10px 40px 10px;
-  padding: 10px;
+  padding: 10px 2em;
   /*overflow: hidden;*/
   border: 1px solid #1F313C;
-  border-radius: 8px;
+  border-radius: 3px;
+
+  display: flex;
+  align-items: center;
+  min-height: 250px;
+  transition: .3s;
+
+  position: relative;
+}
+
+.guitarra:hover{
+  /* box-shadow: inset x y difuminado color */
+  box-shadow: 10px 10px 0 #ff3149;
+}
+.guitarra:nth-of-type(even):hover{
+  box-shadow: -10px 10px 0 black;
+}
+.guitarra-image{
+  position: absolute;
+  /* alineo la imagen a la derecha y abajo */
+  right: 0;
+  bottom: 0;
+}
+.guitarra-name{
+  font-size: 3em;
+  margin: 0 0 .2em;
+  padding-bottom: .2em;
+  border-bottom: 2px dashed #1e313d;
 }
 .guitarra ol {
   padding: 0;
+  /* hace lo mismo que el counter, es decir, poner dentro la numeracion de los elementos <li> */
+  list-style-position: inside;
+  /* quita la numeracion a los items de la lista */
+  /* list-style: none; */
+  /* creo un contador css */
+  /* counter-reset: feature; */
 }
-.guitarra.b {
-  height: 190px;
+/* .guitarra li::before{
+  /* le sumo uno al contador, inicio en 0 
+  counter-increment: feature;
+  content: counter(feature) ". ";
+} */
+
+/* odd para aplicar a elemento PAR, even para elemento IMPAR */
+.guitarra:nth-of-type(even){
+  /* background: blue; */
+  justify-content: flex-end;
 }
 
-
-.derecha {
-  float: right;
-  position: relative;
-  top: -127px;
+.guitarra:nth-of-type(even) .guitarra-image{
+  left: 0;
+  /* como .guitarra-image ya tenia asignado right debo resetearlo */
+  right: initial;
 }
-
-.izquierda {
-  float: left;
-  position: relative;
-}
-
 .contenedor-guitarra-a {
   padding-left: 20px;
 }

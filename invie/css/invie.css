@@ -206,6 +206,9 @@ input:focus, textarea:focus {
   /*overflow: hidden;*/
   border: 1px solid #1F313C;
   border-radius: 8px;
+
+  display: flex;
+  align-items: center;
 }
 .guitarra ol {
   padding: 0;
