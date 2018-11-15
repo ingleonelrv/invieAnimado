@@ -9,6 +9,18 @@ import logoPortada from './images/invie.png';
 import acustica from './images/invie-acustica.png';
 import clasica from './images/invie-classic.png';
 
+import cheet from 'cheet.js';
+
+//USO de cheet para escuchar una frase
+
+cheet('i n v i e', () => {
+  console.log("Probando la frase");
+});
+
+cheet('i n i c i o', () => {
+  console.log("Estado inicial");
+});
+
 // data es un objeto menu es un key
 const data = {
   menu : [{
