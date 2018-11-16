@@ -1,5 +1,15 @@
 import React,{Component} from 'react';
 
+// esta importacion me servira para poder conectarme a mi store en index.js
+import {connect} from 'react-redux';
+
+//surge de la conexion establecida en el export, y viene con un parametro
+function mapStateToProps(state){
+    return{
+        guitarras: state.guitarras,
+    }
+}
+
 class Guitarras extends Component{
     render(){
         return(
@@ -34,4 +44,4 @@ class Guitarras extends Component{
         );
     }
 }
-export default Guitarras;
+export default connect(mapStateToProps)(Guitarras);

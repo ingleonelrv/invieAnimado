@@ -9,64 +9,56 @@ import logoPortada from './images/invie.png';
 import acustica from './images/invie-acustica.png';
 import clasica from './images/invie-classic.png';
 
-import cheet from 'cheet.js';
-
-//USO de cheet para escuchar una frase
-
-cheet('i n v i e', () => {
-  console.log("Probando la frase");
-});
-
-cheet('i n i c i o', () => {
-  console.log("Estado inicial");
-});
-
 // data es un objeto menu es un key
-const data = {
-  menu : [{
-    href: 'index.html',
-    title: 'Home',
-  },{
-    href: '#guitarras',
-    title: 'Guitarras',
-  },{
-    href: 'precios.html',
-    title: 'Precios'
-  }],
-  logoPortada: logoPortada,
-  // array[]
-  guitarras : [
-      {
-          image: acustica,
-          alt: 'Guitarra Invie Acustica',
-          name: 'Invie Acustica',
-          features: [
-              'Estilo vintage',
-              'Madera pura',
-              'Incluye estuche invisible de aluminio',
-          ]
-      },
-      {
-        image: clasica,
-        alt: 'Guitarra Invie Classic',
-        name: 'Invie Classic',
-        features: [
-            'Estilo vintage',
-            'Liviana',
-            'Inicia tu camino como Rockstar',
-        ]
-    }
-  ],
-}
+// const data = {
+//   menu : [{
+//     href: 'index.html',
+//     title: 'Home',
+//   },{
+//     href: '#guitarras',
+//     title: 'Guitarras',
+//   },{
+//     href: 'precios.html',
+//     title: 'Precios'
+//   }],
+//   logoPortada: logoPortada,
+//   // array[]
+//   guitarras : [
+//       {
+//           image: acustica,
+//           alt: 'Guitarra Invie Acustica',
+//           name: 'Invie Acustica',
+//           features: [
+//               'Estilo vintage',
+//               'Madera pura',
+//               'Incluye estuche invisible de aluminio',
+//           ]
+//       },
+//       {
+//         image: clasica,
+//         alt: 'Guitarra Invie Classic',
+//         name: 'Invie Classic',
+//         features: [
+//             'Estilo vintage',
+//             'Liviana',
+//             'Inicia tu camino como Rockstar',
+//         ]
+//     }
+//   ],
+// }
 
 class App extends Component {
   render() {
     return (
       <section className="Invie">
         {/* Portada */}
-        <Portada menu={data.menu} logo={data.logoPortada} />
+        {/* <Portada menu={data.menu} logo={data.logoPortada} /> */}
+        {/* dejamos de pasarle datos desde aqui, Portada se conectara directo con el store del index */}
+        <Portada />
         {/* Guitarras */}
-        <Guitarras guitarras={data.guitarras}/>
+        {/* <Guitarras guitarras={data.guitarras}/> */}
+        {/* dejamos de pasarle datos desde aqui, Portada se conectara directo con el store del index */}
+        <Guitarras />
         {/* Footer */}
         <Footer />
       </section>

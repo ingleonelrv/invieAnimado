@@ -1,6 +1,17 @@
 // Component es un metodo de React y va entre {}
 import React, {Component} from 'react';
 
+// esta importacion me servira para poder conectarme a mi store en index.js
+import {connect} from 'react-redux';
+
+//surge de la conexion establecida en el export, y viene con un parametro
+function mapStateToProps(state){
+    return{
+        logo: state.logoPortada,
+        menu: state.menu,
+    }
+}
+
 class Portada extends Component{
     // render es una funcion que siempre debe retur() algo
     render(){
@@ -34,4 +45,7 @@ class Portada extends Component{
         );
     }
 }
-export default Portada;
+
+// de esta forma nos conectamos al store
+export default connect(mapStateToProps)(Portada);
+// export default Portada;
