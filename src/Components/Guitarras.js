@@ -31,24 +31,32 @@ class Guitarras extends Component{
                         <article className="guitarra" key={index}>
                             {/* con el CSSTransitionGroup es como entra una imagen y sale otra, sin este se quedan superpuestas */}
                             <CSSTransitionGroup
-                            transitionName= "flicker"
-                            // el tiempo de entrada e ida va acorde al tiempo de la animation.css
-                            transitonEnterTimeOut={500}
-                            transitonLeaveTimeOut={500}
+                                transitionName= "flicker"
+                                // el tiempo de entrada e ida va acorde al tiempo de la animation.css
+                                transitonEnterTimeOut={500}
+                                transitonLeaveTimeOut={500}
                             >
                                 {/* para q haya un cambio con CSSTransitionGroup debe haber un key en img */}
                                 <img className="guitarra-image" key={guitarra.image} src={guitarra.image}  alt={guitarra.alt} width="350"/>
                             </CSSTransitionGroup>
-                            <div className="contenedor-guitarra">
-                            <h3 className="guitarra-name">{guitarra.name}</h3>
-                            <ol>
-                                {guitarra.features.map((feature,index) => {
-                                    return(
-                                        <li key={index}>{feature}</li>
-                                    );
-                                })}
-                            </ol>
-                            </div>
+                            <CSSTransitionGroup
+                                transitionName="fade"
+                                transitonEnterTimeOut={300}
+                                // transitonLeaveTimeOut={300}
+                                // transitionLeave={false} solo me deja mi transition de entrada asi no chocan en el cambio
+                                transitionLeave={false}
+                            >
+                                <div className="contenedor-guitarra" key={guitarra.name}>
+                                <h3 className="guitarra-name">{guitarra.name}</h3>
+                                <ol>
+                                    {guitarra.features.map((feature,index) => {
+                                        return(
+                                            <li key={index}>{feature}</li>
+                                        );
+                                    })}
+                                </ol>
+                                </div>
+                            </CSSTransitionGroup>
                         </article>
                     );
                 })}

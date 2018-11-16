@@ -2,19 +2,19 @@
 
 }
 .flicker-enter{
-    animation-name: flicker;
+    animation-name: flicker, shake;
     /* configurar tambien el tiempo en el componente Guitarra */
-    animation-duration: .5s;
-    animation-timing-function: linear;
+    animation-duration: .5s, .5s;
+    animation-timing-function: linear, ease-in-out;
 }
 .flicker-enter-active{
     
 }
 .flicker-leave{
-    animation-name: flicker;
+    animation-name: flicker, shake;
     /* configurar tambien el tiempo en el componente Guitarra */
-    animation-duration: .5s;
-    animation-timing-function: linear;
+    animation-duration: .5s, .5s;
+    animation-timing-function: linear, ease-in-out;
 }
 .flicker-leave-active{
 
@@ -113,3 +113,38 @@
       transform: rotateY(0360deg);
     }
   }
+
+@keyframes shake{
+    10%, 90%{
+        transform: translateX(-1px);
+    }20%,80%{
+        transform: translateX(2px);
+    }30%, 50%, 70%{
+        transform: translateX(-4px);
+    }40%, 60%{
+        transform: translateX(4px);
+    }
+}
+
+.fade{
+
+}
+.fade-enter{
+    opacity: 0;
+    transform: scale(.5);
+}
+.fade-enter-active{
+    opacity: 1;
+    transform: scale(1);
+    transition: .3s;
+}
+/* es comun que las propiedades del leave sean lo contrario del enter */
+.fade-leave{
+    opacity: 1;
+    transform: scale(1);
+}
+.fade-leave-active{
+    opacity: 0;
+    transform: scale(.5);
+    transition: .3s;
+}
