@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './css/animations.css'
 import Invie from './Invie';
 import * as serviceWorker from './serviceWorker';
 
@@ -10,13 +11,13 @@ import {Provider} from 'react-redux';
 // funcion para crear los almacenes de datos
 import {createStore} from 'redux';
 
-import Portada from './Components/Portada.js';
-import Guitarras from './Components/Guitarras.js';
-import Footer from './Components/Footer.js';
-
 import logoPortada from './images/invie.png';
 import acustica from './images/invie-acustica.png';
 import clasica from './images/invie-classic.png';
+
+//importando nuevos datos para el easter
+import easterA from './images/easter-a.png';
+import easterB from './images/easter-b.png';
 
 import cheet from 'cheet.js';
 
@@ -82,6 +83,28 @@ const easter = {
         href: 'index.html',
         title: 'Home',
       }],
+    guitarras:[
+        {
+            image: easterA,
+            alt: 'Guitarra Padre de familia',
+            name: 'Invie Familiar',
+            features: [
+                'Lista para copiar a Los Simpson',
+                'Aire puro',
+                'Chistes malos',
+            ]
+        },
+        {
+          image: easterB,
+          alt: 'Guitarra Anime',
+          name: 'Invie Anime',
+          features: [
+              'Estilo vintage',
+              'Liviana',
+              'Inicia tu camino como Rockstar',
+          ]
+      }
+    ]
 }
 cheet('i n v i e', () => {
     // console.log("Probando la frase");
