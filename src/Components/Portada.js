@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 
 //para crear las animaciones de las guitarras, debo asegurarme de instalarlo antes en este proyecto
 import { CSSTransitionGroup } from 'react-transition-group';
+import Corazon from './Corazon';
 
 //surge de la conexion establecida en el export, y viene con un parametro
 function mapStateToProps(state){
@@ -17,6 +18,24 @@ function mapStateToProps(state){
 }
 
 class Portada extends Component{
+    renderCorazon(){
+        // creo una matriz de 10 elementos y lo lleno con ""
+        const corazones = new Array(100).fill({});
+        return(
+            corazones.map((elment, index) => {
+                const style = {
+                    left: Math.floor((Math.random() * (window.innerWidth - 0))) +0  + "px",
+                    // el delay hace que no salgan al mismo tiempo
+                    // los corazones que estan en espera aparecen en la pantalla, los ocultamos en CSS
+                    animationDelay: Math.floor((Math.random() * (10000 - 0))) +0  + "ms",
+                }
+                return(
+                    // para dibujar siempre necesita un key
+                    <Corazon key={index} style={style} />
+                );
+            })
+        );
+    }
     // render es una funcion que siempre debe retur() algo
     render(){
         return(
@@ -56,6 +75,13 @@ class Portada extends Component{
                         </div>
                     }
                 </CSSTransitionGroup>
+
+                {/* cuando se lanza el easter isAnimated pasa a positivo y el If abajo puede ejecutar Corazon */}
+                {
+                    this.props.isAnimated &&
+                    // si hace easter llamar la funcion renderCorazon
+                    this.renderCorazon()
+                }
             </section>
         );
     }

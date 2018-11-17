@@ -12,6 +12,7 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 
 import logoPortada from './images/invie.png';
+import logoPlatzi from './images/platzi.png';
 import acustica from './images/invie-acustica.png';
 import clasica from './images/invie-classic.png';
 
@@ -81,10 +82,8 @@ const store = createStore(reducer, data);
 
 const easter = {
     isAnimated: 'is-animated',
-    menu : [{
-        href: 'index.html',
-        title: 'Home',
-      }],
+    menu : [],
+      logoPortada: logoPlatzi,
     guitarras:[
         {
             image: easterA,
