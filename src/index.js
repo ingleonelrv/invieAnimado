@@ -24,6 +24,7 @@ import cheet from 'cheet.js';
 
 // data es un objeto menu es un key
 const data = {
+    isAnimated: false,
   menu : [{
     href: 'index.html',
     title: 'Home',
@@ -79,6 +80,7 @@ const store = createStore(reducer, data);
 //USO de cheet para escuchar una frase
 
 const easter = {
+    isAnimated: 'is-animated',
     menu : [{
         href: 'index.html',
         title: 'Home',

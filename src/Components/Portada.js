@@ -4,11 +4,15 @@ import React, {Component} from 'react';
 // esta importacion me servira para poder conectarme a mi store en index.js
 import {connect} from 'react-redux';
 
+//para crear las animaciones de las guitarras, debo asegurarme de instalarlo antes en este proyecto
+import { CSSTransitionGroup } from 'react-transition-group';
+
 //surge de la conexion establecida en el export, y viene con un parametro
 function mapStateToProps(state){
     return{
         logo: state.logoPortada,
         menu: state.menu,
+        isAnimated: state.isAnimated,
     }
 }
 
@@ -17,7 +21,8 @@ class Portada extends Component{
     render(){
         return(
             // Aqui va todo mi codigo html
-            <section id="portada" className="portada background">
+            // nota con las comillas para combinar texto y variable, son las que estan antes del 1
+            <section id="portada" className={`portada background ${this.props.isAnimated}`}>
                 <header id="header" className="header contenedor">
                     <figure className="logotipo">
                     <img src={this.props.logo} width="186" height="60" alt="Invie logotipo"/>
@@ -36,11 +41,21 @@ class Portada extends Component{
                     </ul>
                     </nav>
                 </header>
-                <div className="contenedor">
-                    <h1 className="titulo">Guitarras <span>invie</span>sibles</h1>
-                    <h3 className="title-a">Sé la estrella de rock que siempre quisiste ser</h3>
-                    <a className="button" href="#guitarras">Conoce mas</a>
-                </div>
+                <CSSTransitionGroup
+                    transitionName="animationInOut"
+                    transitonEnterTimeOut={800}
+                    transitonLeaveTimeOut={800}
+                >
+                    {/* condicion: Si isAnimated  (!this.props.isAnimated) entonces quitalo */}
+                    {
+                        !this.props.isAnimated &&
+                        <div className="contenedor" key="portada">
+                            <h1 className="titulo">Guitarras <span>invie</span>sibles</h1>
+                            <h3 className="title-a">Sé la estrella de rock que siempre quisiste ser</h3>
+                            <a className="button" href="#guitarras">Conoce mas</a>
+                        </div>
+                    }
+                </CSSTransitionGroup>
             </section>
         );
     }

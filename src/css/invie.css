@@ -105,6 +105,29 @@ input:focus, textarea:focus {
   background-image: url('../images/background.png');
   background-size: cover;
 }
+.portada.background.is-animated{
+  background-image: url('../images/team-platzi-azul.jpg');
+  background-repeat: no-repeat;
+  animation: backgroundPlatzi 15s linear alternate infinite;
+}
+@keyframes backgroundPlatzi{
+  0%{
+    background-size: 200%;
+    background-position: center;
+  }20%{
+    background-position: right top;
+  }40%{
+    background-size: 100%;
+    background-position: center;
+  }60%{
+    background-position: left top;
+  }80%{
+    background-position: left -80px;
+  }100%{
+    background-position: right -80px;
+    background-size: 200%;
+  }
+}
 
 .button {
   border-radius: 12px;
