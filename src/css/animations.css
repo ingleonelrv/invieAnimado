@@ -201,7 +201,7 @@
     background-size: 1450px 50px;
     /* Aqui oculto los corazones que estan en espera de aparecer */
     bottom: -100px;
-    position: fixed;
+    position: fixed; 
 }
 .like.is-liked{
     animation-name: like, movimiento;
