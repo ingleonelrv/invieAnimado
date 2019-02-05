@@ -43,8 +43,8 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 # invieAnimado
-Animacion usando React y Redux
-$npm i
-$npm start
-Para ver animacion teclear 'invie'
+Animacion usando React y Redux<br>
+$npm i<br>
+$npm start<br>
+Para ver animacion teclear 'invie'<br>
 Para volver normal teclear 'inicio'
